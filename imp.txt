@@ -1,0 +1,4 @@
+premmotetech1_db_user
+O3rEtuyeZncrzahK
+
+mongodb+srv://premmotetech1_db_user:<db_password>@vehicle.jzpl3ux.mongodb.net/?appName=Vehicle
