@@ -1,8 +1,11 @@
+imp.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
 *$py.class
 imp.txt
+artifact
 
 rf_model.pkl
 

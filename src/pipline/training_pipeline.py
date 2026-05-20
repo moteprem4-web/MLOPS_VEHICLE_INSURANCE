@@ -1,4 +1,5 @@
 import sys
+from src.entity.artifact_entity import DataIngestionArtifact
 from src.exception import MyException
 from src.logger import logging
 
@@ -17,13 +18,12 @@ from src.entity.config_entity import (DataIngestionConfig,
                                         #   ModelPusherConfig
                                         )
                                           
-from src.entity.artifact_entity import (DataIngestionArtifact,
-                                            # DataValidationArtifact,
-                                            # DataTransformationArtifact,
-                                            # ModelTrainerArtifact,
-                                            # ModelEvaluationArtifact,
-                                            # ModelPusherArtifact\
-                                            )
+# from src.entity.artifact_entity import (DataIngestionArtifact,
+#                                             # DataValidationArtifact,
+#                                             # DataTransformationArtifact,
+#                                             # ModelTrainerArtifact,
+#                                             # ModelEvaluationArtifact,
+#                                             # ModelPusherArtifact\)
 
 
 
@@ -133,16 +133,16 @@ class TrainPipeline:
         """
         try:
             data_ingestion_artifact = self.start_data_ingestion()
-            # data_validation_artifact = self.start_data_validation(data_ingestion_artifact=data_ingestion_artifact)
-            # data_transformation_artifact = self.start_data_transformation(
-            #     data_ingestion_artifact=data_ingestion_artifact, data_validation_artifact=data_validation_artifact)
-            # model_trainer_artifact = self.start_model_trainer(data_transformation_artifact=data_transformation_artifact)
-            # model_evaluation_artifact = self.start_model_evaluation(data_ingestion_artifact=data_ingestion_artifact,
-            #                                                         model_trainer_artifact=model_trainer_artifact)
-            # if not model_evaluation_artifact.is_model_accepted:
-            #     logging.info(f"Model not accepted.")
-            #     return None
-            # model_pusher_artifact = self.start_model_pusher(model_evaluation_artifact=model_evaluation_artifact)
+            data_validation_artifact = self.start_data_validation(data_ingestion_artifact=data_ingestion_artifact)
+            data_transformation_artifact = self.start_data_transformation(
+                data_ingestion_artifact=data_ingestion_artifact, data_validation_artifact=data_validation_artifact)
+            model_trainer_artifact = self.start_model_trainer(data_transformation_artifact=data_transformation_artifact)
+            model_evaluation_artifact = self.start_model_evaluation(data_ingestion_artifact=data_ingestion_artifact,
+                                                                    model_trainer_artifact=model_trainer_artifact)
+            if not model_evaluation_artifact.is_model_accepted:
+                logging.info(f"Model not accepted.")
+                return None
+            model_pusher_artifact = self.start_model_pusher(model_evaluation_artifact=model_evaluation_artifact)
             
         except Exception as e:
             raise MyException(e, sys)
