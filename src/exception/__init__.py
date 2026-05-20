@@ -46,3 +46,4 @@ class MyException(Exception):
         Returns the string representation of the error message.
         """
         return self.error_message
+    
