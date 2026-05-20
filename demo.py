@@ -9,10 +9,10 @@
 
 # --------------------------------------------------------------------------------
 
-# below code is to check the exception config
-from src.logger import logging
-from src.exception import MyException
-import sys
+# # below code is to check the exception config
+# from src.logger import logging
+# from src.exception import MyException
+# import sys
 
 # try:
 #     a = 1+'Z'

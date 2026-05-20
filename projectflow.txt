@@ -30,6 +30,8 @@
 15. Write the exception file and test it on demo.py
 16. EDA and Feature Engg notebook added.
 
+
+*********************************************************************
 ----------------------------------------------- Data Ingestion -----------------------------------------------
 17. Before we work on "Data Ingestion" component >> Declare variables within constants.__init__.py file >> 
     add code to configuration.mongo_db_connections.py file and define the func for mondodb connection >> 
@@ -50,6 +52,8 @@
     To setup the connection url on Windows, open env variable setting option and add a new variable:
     Name: MONGODB_URL, Value = <url>
     Also add "artifact" dir to .gitignore file
+
+    *****************************************************************
 
 ---------------------------- Data Validation, Data Transformation & Model Trainer ----------------------------
 
