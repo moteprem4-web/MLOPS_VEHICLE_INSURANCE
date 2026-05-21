@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Insurance Prediction</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Vehicle Insurance Prediction</h1>
+
+        <form method="post" action="/">
+
+            <!-- Gender -->
+            <label for="Gender">Gender:</label>
+            <select id="Gender" name="Gender" required>
+                <option value="">Select Gender</option>
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+            </select>
+
+            <!-- Age -->
+            <label for="Age">Age:</label>
+            <input type="number" id="Age" name="Age" required>
+
+            <!-- Driving License -->
+            <label for="Driving_License">Driving License:</label>
+            <select id="Driving_License" name="Driving_License" required>
+                <option value="">Select Option</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <!-- Region Code -->
+            <label for="Region_Code">Region Code:</label>
+            <input type="number" step="0.01" id="Region_Code" name="Region_Code" required>
+
+            <!-- Previously Insured -->
+            <label for="Previously_Insured">Previously Insured:</label>
+            <select id="Previously_Insured" name="Previously_Insured" required>
+                <option value="">Select Option</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <!-- Annual Premium -->
+            <label for="Annual_Premium">Annual Premium:</label>
+            <input type="number" step="0.01" id="Annual_Premium" name="Annual_Premium" required>
+
+            <!-- Policy Sales Channel -->
+            <label for="Policy_Sales_Channel">Policy Sales Channel:</label>
+            <input type="number" step="0.01" id="Policy_Sales_Channel" name="Policy_Sales_Channel" required>
+
+            <!-- Vintage -->
+            <label for="Vintage">Vintage:</label>
+            <input type="number" id="Vintage" name="Vintage" required>
+
+            <!-- Vehicle Age Less Than 1 Year -->
+            <label for="Vehicle_Age_lt_1_Year">Vehicle Age &lt; 1 Year:</label>
+            <select id="Vehicle_Age_lt_1_Year" name="Vehicle_Age_lt_1_Year" required>
+                <option value="">Select Option</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <!-- Vehicle Age Greater Than 2 Years -->
+            <label for="Vehicle_Age_gt_2_Years">Vehicle Age &gt; 2 Years:</label>
+            <select id="Vehicle_Age_gt_2_Years" name="Vehicle_Age_gt_2_Years" required>
+                <option value="">Select Option</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <!-- Vehicle Damage -->
+            <label for="Vehicle_Damage_Yes">Vehicle Damage:</label>
+            <select id="Vehicle_Damage_Yes" name="Vehicle_Damage_Yes" required>
+                <option value="">Select Option</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+
+            <button type="submit">Predict</button>
+
+        </form>
+
+        <!-- Train Model Button -->
+        <form method="get" action="/train">
+
+            <button type="submit" class="train-button">
+                Train Model
+            </button>
+
+        </form>
+
+        <!-- Prediction Result -->
+        {% if context %}
+        <div class="result">
+            <h2>Result: {{ context }}</h2>
+        </div>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
